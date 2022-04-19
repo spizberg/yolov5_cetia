@@ -36,7 +36,8 @@ def torch_distributed_zero_first(local_rank: int):
         dist.barrier(device_ids=[local_rank])
     yield
     if local_rank == 0:
-        dist.barrier(device_ids=[0])
+        # dist.barrier(device_ids=[0])
+        dist.barrier()
 
 
 def device_count():
